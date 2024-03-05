@@ -2,9 +2,11 @@ import fs from 'fs';
 import { Car } from '@/types';
 import read, { filePath } from './read';
 
-export default function deletById(ids: string | string[]): boolean {
+export default async function deletById(
+	ids: string | string[],
+): Promise<boolean> {
 	try {
-		const cars: Car[] | null = read();
+		const cars: Car[] | null = await read();
 		if (cars === null) {
 			return false;
 		}

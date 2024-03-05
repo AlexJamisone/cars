@@ -2,9 +2,12 @@ import fs from 'fs';
 import { Car } from '@/types';
 import read, { filePath } from './read';
 
-export default function update(id: number, updateCar: Partial<Car>): boolean {
+export default async function update(
+	id: number,
+	updateCar: Partial<Car>,
+): Promise<boolean> {
 	try {
-		const cars: Car[] | null = read();
+		const cars: Car[] | null = await read();
 		if (cars === null) {
 			return false;
 		}

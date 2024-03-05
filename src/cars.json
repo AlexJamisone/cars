@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "image": "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "brand": "BMW",
+    "description": "Lorem ipsum",
+    "model": "L3",
+    "colors": [
+      "#fff",
+      "#000"
+    ],
+    "price": 200000,
+    "year": 1999,
+    "type": "benz",
+    "transmition": "manual",
+    "id": "08d5d3c8-8df0-4640-8e97-e7a0ffb462c0"
+  }
+]
