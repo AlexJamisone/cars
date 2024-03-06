@@ -1,20 +1,6 @@
 import { Car } from '@/types';
 import create from '@/utils/crud/create';
-import { getById } from '@/utils/crud/getById';
 import { auth } from '@clerk/nextjs';
-
-export async function GET(
-	req: Request,
-	{ params }: { params: { id: string } },
-) {
-	try {
-		const id = params.id;
-		const response = await getById(id);
-		return Response.json(response);
-	} catch (err) {
-		console.log(err);
-	}
-}
 
 export async function POST(req: Request) {
 	try {

@@ -4,6 +4,8 @@ import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import { ruRU } from '@clerk/localizations';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,6 +23,17 @@ export default function RootLayout({
 		<ClerkProvider localization={ruRU}>
 			<html lang="en">
 				<body className={inter.className}>
+					<div className="flex justify-center">
+						<Link href="/">
+							<Image
+								className="pointer-events-none"
+								src="/logo.png"
+								width={150}
+								height={150}
+								alt="logo"
+							/>
+						</Link>
+					</div>
 					<ReactQueryProvider>{children}</ReactQueryProvider>
 				</body>
 			</html>
