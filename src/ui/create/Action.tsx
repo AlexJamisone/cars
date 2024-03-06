@@ -1,6 +1,7 @@
 import { useCreateCar } from '@/store/useCreateCare';
 import { Car } from '@/types';
 import { api } from '@/utils/api';
+import { createSchema, parsingError } from '@/utils/validation';
 import { Button, Stack, useToast } from '@chakra-ui/react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
@@ -11,6 +12,7 @@ const Action = () => {
 	const { mutate: create, isPending } = useMutation({
 		mutationKey: ['create'],
 		mutationFn: async (car: Omit<Car, 'id'>) => {
+			createSchema.parse(car);
 			const response = await api.post('/car', car);
 			return response.data;
 		},
@@ -22,12 +24,10 @@ const Action = () => {
 			});
 			state.setClear();
 		},
+
 		onError: ({ message }) => {
-			console.log(message);
-			toast({
-				description: message,
-				status: 'error',
-			});
+			const handlError = parsingError(message);
+			state.setError({ isError: true, type: handlError });
 		},
 	});
 	return (
@@ -41,7 +41,7 @@ const Action = () => {
 						type: state.motor,
 						year: state.inputs.year,
 						brand: state.inputs.brand,
-						image: 'https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+						image: state.image,
 						model: state.inputs.model,
 						power: state.inputs.power,
 						colors: state.colors,

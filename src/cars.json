@@ -26,5 +26,44 @@
     "colors": [],
     "description": "Nullam sagittis. Suspendisse non nisl sit amet velit hendrerit rutrum. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi.\n\nPhasellus dolor. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nDonec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nullam dictum felis eu pede mollis pretium. Vestibulum suscipit nulla quis orci.",
     "id": "9c9146be-76f6-413b-b7b9-c3b5abd39642"
+  },
+  {
+    "transmission": "manual",
+    "price": 0,
+    "type": "benz",
+    "year": 0,
+    "brand": "",
+    "image": "",
+    "model": "",
+    "power": 0,
+    "colors": [],
+    "description": "",
+    "id": "98c50c06-ac1e-4b7f-9108-ebb5a8efea71"
+  },
+  {
+    "transmission": "manual",
+    "price": 0,
+    "type": "benz",
+    "year": 0,
+    "brand": "",
+    "image": "",
+    "model": "",
+    "power": 0,
+    "colors": [],
+    "description": "",
+    "id": "882a1418-43f0-4838-90ea-12f874edda65"
+  },
+  {
+    "transmission": "manual",
+    "price": 0,
+    "type": "benz",
+    "year": 0,
+    "brand": "",
+    "image": "",
+    "model": "",
+    "power": 0,
+    "colors": [],
+    "description": "",
+    "id": "301abaa6-f68e-473f-a0ed-b342afb6121d"
   }
 ]

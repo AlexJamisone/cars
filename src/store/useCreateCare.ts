@@ -13,6 +13,13 @@ export type CreateState = {
 	image: string;
 	motor: 'benz' | 'dizel' | 'electro';
 	transmission: 'auto' | 'manual' | 'robot';
+	error?: {
+		isError: boolean;
+		type: {
+			message: string;
+			path: string;
+		}[];
+	};
 };
 
 type CreateAction = {
@@ -21,6 +28,8 @@ type CreateAction = {
 	setColor: (color: string) => void;
 	setMotor: (motor: CreateState['motor']) => void;
 	setTransmition: (tr: CreateState['transmission']) => void;
+	setError: (error: CreateState['error']) => void;
+	reset: () => void;
 	setClear: () => void;
 };
 type Create = CreateState & CreateAction;
@@ -49,5 +58,7 @@ export const useCreateCar = create<Create>((set) => ({
 		set((state) => ({ ...state, transmission })),
 	setColor: (color) =>
 		set((state) => ({ ...state, colors: [...state.colors, color] })),
+	setError: (error) => set((state) => ({ ...state, error })),
+	reset: () => set((state) => ({ ...state, error: undefined })),
 	setClear: () => set(initial),
 }));

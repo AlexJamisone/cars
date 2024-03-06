@@ -2,6 +2,7 @@ import { filds } from '@/constants/inputs';
 import { CreateState, useCreateCar } from '@/store/useCreateCare';
 import {
 	FormControl,
+	FormErrorMessage,
 	FormLabel,
 	Input,
 	InputGroup,
@@ -13,13 +14,18 @@ import { FormEvent } from 'react';
 
 const FildsInputs = () => {
 	const motor = useCreateCar((state) => state.motor);
-	const [inputs, setFilds] = useCreateCar((state) => [
+	const [inputs, setFilds, error, reset] = useCreateCar((state) => [
 		state.inputs,
 		state.setFilds,
+		state.error,
+		state.reset,
 	]);
 
 	const handlFilds = (e: FormEvent<HTMLInputElement>) => {
 		const { name, value } = e.currentTarget;
+		if (error?.isError) {
+			reset();
+		}
 		setFilds({
 			[name]: name === ('price' || 'year' || 'power') ? +value : value,
 		} as CreateState['inputs']);
@@ -28,7 +34,15 @@ const FildsInputs = () => {
 	return (
 		<Stack>
 			{filds.map((item) => (
-				<FormControl key={item.id}>
+				<FormControl
+					key={item.id}
+					isInvalid={
+						error?.isError &&
+						error.type.findIndex(
+							(err) => err.path === item.name,
+						) !== -1
+					}
+				>
 					<FormLabel htmlFor={item.name}>{item.label}</FormLabel>
 					<InputGroup>
 						{item.addons && (
@@ -53,6 +67,12 @@ const FildsInputs = () => {
 							}
 						/>
 					</InputGroup>
+					<FormErrorMessage>
+						{
+							error?.type.find((err) => err.path === item.name)
+								?.message
+						}
+					</FormErrorMessage>
 				</FormControl>
 			))}
 		</Stack>
