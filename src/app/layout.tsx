@@ -6,6 +6,7 @@ import { ruRU } from '@clerk/localizations';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import Image from 'next/image';
 import Link from 'next/link';
+import Navigation from '@/ui/navigation';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,17 +24,7 @@ export default function RootLayout({
 		<ClerkProvider localization={ruRU}>
 			<html lang="en">
 				<body className={inter.className}>
-					<div className="flex justify-center">
-						<Link href="/">
-							<Image
-								className="pointer-events-none"
-								src="/logo.png"
-								width={150}
-								height={150}
-								alt="logo"
-							/>
-						</Link>
-					</div>
+					<Navigation />
 					<ReactQueryProvider>{children}</ReactQueryProvider>
 				</body>
 			</html>
