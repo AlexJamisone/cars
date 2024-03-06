@@ -1,11 +1,14 @@
 'use client';
 import { Car } from '@/types';
 import CarCard from '@/ui/card';
+import Menu from '@/ui/menu';
 import { api } from '@/utils/api';
+import { useAuth } from '@clerk/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 
 export default function Home() {
+	const { isSignedIn } = useAuth();
 	const { data: cars, isLoading } = useQuery({
 		queryKey: ['cars'],
 		queryFn: async () => {
@@ -14,12 +17,9 @@ export default function Home() {
 		},
 	}); // work
 	return (
-		<main className="">
-			{cars?.map((car) => (
-				<Link key={car.id} href={`/car/${car.id}`}>
-					<CarCard car={car} />
-				</Link>
-			))}
+		<main className="flex flex-col gap-5 justify-center items-center">
+			{isSignedIn && <Menu />}
+			{cars?.map((car) => <CarCard key={car.id} car={car} />)}
 		</main>
 	);
 }
