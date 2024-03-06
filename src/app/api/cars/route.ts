@@ -11,13 +11,3 @@ export async function GET() {
 	}
 }
 
-export async function POST(req: Request) {
-	try {
-		const car = await req.json();
-		console.log(car);
-		await create(car as Omit<Car, 'id'>);
-		return Response.json(true);
-	} catch (err) {
-		console.log(err);
-	}
-}
