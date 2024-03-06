@@ -1,5 +1,6 @@
 'use client';
 import { Car } from '@/types';
+import CarCard from '@/ui/card';
 import { api } from '@/utils/api';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
@@ -13,10 +14,10 @@ export default function Home() {
 		},
 	}); // work
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
+		<main className="">
 			{cars?.map((car) => (
 				<Link key={car.id} href={`/car/${car.id}`}>
-					{car.brand}
+					<CarCard car={car} />
 				</Link>
 			))}
 		</main>
