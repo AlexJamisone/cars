@@ -7,6 +7,8 @@ import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '@/ui/navigation';
+import CSSProvider from '@/providers/CSSProvider';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,8 +26,10 @@ export default function RootLayout({
 		<ClerkProvider localization={ruRU}>
 			<html lang="en">
 				<body className={inter.className}>
-					<Navigation />
-					<ReactQueryProvider>{children}</ReactQueryProvider>
+					<ChakraProvider>
+						<Navigation />
+						<ReactQueryProvider>{children}</ReactQueryProvider>
+					</ChakraProvider>
 				</body>
 			</html>
 		</ClerkProvider>

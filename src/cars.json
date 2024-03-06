@@ -13,5 +13,18 @@
     "type": "benz",
     "transmition": "manual",
     "id": "08d5d3c8-8df0-4640-8e97-e7a0ffb462c0"
+  },
+  {
+    "transmission": "auto",
+    "price": 120000,
+    "type": "benz",
+    "year": "2014",
+    "brand": "Ferrari",
+    "image": "https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "model": "M-1",
+    "power": 0,
+    "colors": [],
+    "description": "Nullam sagittis. Suspendisse non nisl sit amet velit hendrerit rutrum. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi.\n\nPhasellus dolor. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nDonec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nullam dictum felis eu pede mollis pretium. Vestibulum suscipit nulla quis orci.",
+    "id": "9c9146be-76f6-413b-b7b9-c3b5abd39642"
   }
 ]

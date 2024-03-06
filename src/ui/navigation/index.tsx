@@ -1,16 +1,15 @@
 'use client';
+import { Stack } from '@chakra-ui/react';
 import { UserButton, useAuth } from '@clerk/nextjs';
-import Image from 'next/image';
-import Link from 'next/link';
-
+import { Link, Image } from '@chakra-ui/next-js';
 const Navigation = () => {
 	const { isSignedIn } = useAuth();
 	return (
-		<header className="flex justify-center">
-			<nav className="flex items-center gap-7">
+		<Stack as="header" alignItems="center">
+			<Stack as="nav" alignItems="center" gap={10} direction="row">
 				<Link href="/">
 					<Image
-						className="pointer-events-none"
+						pointerEvents="none"
 						src="/logo.png"
 						width={149}
 						height={149}
@@ -20,10 +19,12 @@ const Navigation = () => {
 				{isSignedIn ? (
 					<UserButton />
 				) : (
-					<Link href="/sign-in">Вход</Link>
+					<Link href="/sign-in" _hover={{ textDecoration: 'none' }}>
+						Вход
+					</Link>
 				)}
-			</nav>
-		</header>
+			</Stack>
+		</Stack>
 	);
 };
 export default Navigation;
