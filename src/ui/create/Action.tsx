@@ -44,7 +44,7 @@ const Action = () => {
 						image: state.image,
 						model: state.inputs.model,
 						power: state.inputs.power,
-						colors: state.colors,
+						colors: state.color.colors,
 						description: state.inputs.description,
 					});
 				}}

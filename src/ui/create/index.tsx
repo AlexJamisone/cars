@@ -3,6 +3,7 @@ import FildsInputs from './FildsInputs';
 import Selectors from './Selectors';
 import Action from './Action';
 import ImageUpload from './ImageUpload';
+import ColorPicker from './ColorPicker';
 
 const Create = () => {
 	return (
@@ -10,7 +11,10 @@ const Create = () => {
 			<ImageUpload />
 			<Stack direction="row" gap={10} alignItems="center">
 				<FildsInputs />
-				<Selectors />
+				<Stack gap={7}>
+					<ColorPicker />
+					<Selectors />
+				</Stack>
 			</Stack>
 			<Action />
 		</Stack>

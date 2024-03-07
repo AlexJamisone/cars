@@ -13,6 +13,7 @@ export const createSchema = z
 		type: z.enum(['benz', 'dizel', 'electro']),
 		transmission: z.enum(['manual', 'auto', 'robot']).nullable(),
 		power: z.number().nullable(),
+        colors: z.array(z.string()).min(1, {message: "Укажите цвета"})
 	})
 	.transform((obj) => {
 		if (obj.type === 'electro') {
