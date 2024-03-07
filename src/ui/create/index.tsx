@@ -6,7 +6,7 @@ import ImageUpload from './ImageUpload';
 
 const Create = () => {
 	return (
-		<Stack>
+		<Stack my={5} gap={5}>
 			<ImageUpload />
 			<Stack direction="row" gap={10} alignItems="center">
 				<FildsInputs />

@@ -6,7 +6,7 @@ export const createSchema = z
 		brand: z
 			.string()
 			.min(1, { message: 'Поле бренд не должно быть пустым' }),
-		image: z.string().min(1, { message: 'Загрузи картику' }),
+		image: z.string().min(1, { message: 'Загрузи картику' }).url(),
 		description: z.string().min(1, { message: 'Заполни описание машины' }),
 		model: z.string().min(1, { message: 'Укажи модель' }),
 		year: z.number().min(4, { message: 'Укажите год, формата 1999' }),
