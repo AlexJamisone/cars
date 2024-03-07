@@ -16,14 +16,14 @@ const CarCard = ({ car }: { car: Car }) => {
 			<CardHeader>
 				<Image
 					quality={100}
-					height={250}
+					height={150}
 					width={250}
 					objectFit="cover"
 					src={image}
 					alt={brand + model}
 					style={{
-						maxHeight: '250px',
-                        objectFit: 'cover'
+						maxHeight: '150px',
+						objectFit: 'cover',
 					}}
 				/>
 			</CardHeader>

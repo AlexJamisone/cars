@@ -19,7 +19,14 @@ export default function Home() {
 	return (
 		<Stack as="main" alignItems="center">
 			{isSignedIn && <DropMenu />}
-			{cars?.map((car) => <CarCard key={car.id} car={car} />)}
+			<Stack
+				direction="row"
+				flexWrap="wrap"
+				gap={5}
+				justifyContent="center"
+			>
+				{cars?.map((car) => <CarCard key={car.id} car={car} />)}
+			</Stack>
 		</Stack>
 	);
 }

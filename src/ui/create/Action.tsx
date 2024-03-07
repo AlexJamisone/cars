@@ -41,7 +41,7 @@ const Action = () => {
 						type: state.motor,
 						year: state.inputs.year,
 						brand: state.inputs.brand,
-						image: 'https://images.pexels.com/photos/10549262/pexels-photo-10549262.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+						image: state.image,
 						model: state.inputs.model,
 						power: state.inputs.power,
 						colors: state.colors,

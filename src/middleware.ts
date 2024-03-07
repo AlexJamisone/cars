@@ -8,6 +8,7 @@ export default authMiddleware({
 		'/api/car/(.*)',
 		'/sign-in',
 		'/sign-up',
+		'/api/uploadthing',
 	],
 });
 export const config = {
