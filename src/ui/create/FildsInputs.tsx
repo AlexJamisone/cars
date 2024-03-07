@@ -22,12 +22,12 @@ const FildsInputs = () => {
 	]);
 
 	const handlFilds = (e: FormEvent<HTMLInputElement>) => {
-		const { name, value } = e.currentTarget;
+		const { type, name, value } = e.currentTarget;
 		if (error?.isError) {
 			reset();
 		}
 		setFilds({
-			[name]: name === ('price' || 'year' || 'power') ? +value : value,
+			[name]: type === 'number' ? +value : value,
 		} as CreateState['inputs']);
 	};
 
@@ -58,6 +58,7 @@ const FildsInputs = () => {
 							placeholder={item.placeholder}
 							name={item.name}
 							onInput={handlFilds}
+							type={item.type}
 							id={item.name}
 							value={inputs[item.name]}
 							onChange={handlFilds}

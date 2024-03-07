@@ -15,10 +15,16 @@ const CarCard = ({ car }: { car: Car }) => {
 		>
 			<CardHeader>
 				<Image
-					width={250}
+					quality={100}
 					height={250}
+					width={250}
+					objectFit="cover"
 					src={image}
 					alt={brand + model}
+					style={{
+						maxHeight: '250px',
+                        objectFit: 'cover'
+					}}
 				/>
 			</CardHeader>
 			<CardBody as={Stack} textAlign="center">

@@ -12,8 +12,8 @@ const Action = () => {
 	const { mutate: create, isPending } = useMutation({
 		mutationKey: ['create'],
 		mutationFn: async (car: Omit<Car, 'id'>) => {
-			createSchema.parse(car);
-			const response = await api.post('/car', car);
+			const validate = createSchema.parse(car);
+			const response = await api.post('/car', validate);
 			return response.data;
 		},
 		onSuccess: () => {
@@ -34,20 +34,20 @@ const Action = () => {
 		<Stack>
 			<Button
 				isLoading={isPending}
-				onClick={() =>
+				onClick={() => {
 					create({
 						transmission: state.transmission,
 						price: state.inputs.price,
 						type: state.motor,
 						year: state.inputs.year,
 						brand: state.inputs.brand,
-						image: state.image,
+						image: 'https://images.pexels.com/photos/10549262/pexels-photo-10549262.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 						model: state.inputs.model,
 						power: state.inputs.power,
 						colors: state.colors,
 						description: state.inputs.description,
-					})
-				}
+					});
+				}}
 			>
 				Создать
 			</Button>

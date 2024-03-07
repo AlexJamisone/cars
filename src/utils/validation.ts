@@ -1,16 +1,32 @@
 import { z } from 'zod';
 
-export const createSchema = z.object({
-	price: z.number(),
-	brand: z.string().min(1, { message: 'Поле бренд не должно быть пустым' }),
-	image: z.string().min(1, { message: 'Загрузи картику' }),
-	description: z.string().min(1, { message: 'Заполни описание машины' }),
-	model: z.string().min(1, { message: 'Укажи модель' }),
-	year: z.number().min(4, { message: 'Укажите год, формата 1999' }),
-	type: z.enum(['benz', 'dizel', 'electro']),
-	transmission: z.enum(['manual', 'auto', 'robot']),
-	power: z.number().optional(),
-});
+export const createSchema = z
+	.object({
+		price: z.number().positive({ message: 'Укажи цену больше 0' }),
+		brand: z
+			.string()
+			.min(1, { message: 'Поле бренд не должно быть пустым' }),
+		image: z.string().min(1, { message: 'Загрузи картику' }),
+		description: z.string().min(1, { message: 'Заполни описание машины' }),
+		model: z.string().min(1, { message: 'Укажи модель' }),
+		year: z.number().min(4, { message: 'Укажите год, формата 1999' }),
+		type: z.enum(['benz', 'dizel', 'electro']),
+		transmission: z.enum(['manual', 'auto', 'robot']).nullable(),
+		power: z.number().nullable(),
+	})
+	.transform((obj) => {
+		if (obj.type === 'electro') {
+			return {
+				...obj,
+				transmission: null,
+			};
+		} else {
+			return {
+				...obj,
+				power: null,
+			};
+		}
+	});
 
 export function parsingError(
 	error: string,
