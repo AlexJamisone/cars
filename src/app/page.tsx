@@ -1,25 +1,28 @@
 'use client';
+import Layout from '@/components/Layout';
 import { Car } from '@/types';
 import CarCard from '@/ui/card';
+import Filter from '@/ui/filter';
 import DropMenu from '@/ui/menu';
 import { api } from '@/utils/api';
 import { Button, Stack } from '@chakra-ui/react';
 import { useAuth } from '@clerk/nextjs';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { useSearchParams } from 'next/navigation';
 
 export default function Home({
 	searchParams,
 }: {
 	searchParams?: { page?: string; limit?: string };
 }) {
-	const { isSignedIn } = useAuth();
 	const page = Number(searchParams?.page) || 1;
 	const limit = Number(searchParams?.limit) || 10;
+	const params = useSearchParams();
 
 	const fetchCar = async (page: number) => {
-		const response = await api.get<Car[]>(
-			`/cars/?page=${page}&limit=${limit}`,
-		);
+		const row = `/cars/?page=${page}&${params.toString()}`;
+		const url = !params.toString() ? row.replace('&', '') : row;
+		const response = await api.get<Car[]>(url);
 		return response.data;
 	};
 
@@ -34,11 +37,10 @@ export default function Home({
 			return lastPageParam + 1;
 		},
 	});
-	console.log(status);
 	return (
-		<Stack as="main" alignItems="center" direction="row">
-			<Stack alignItems="center" justifyContent="center">
-				{isSignedIn && <DropMenu />}
+		<Stack as="main" mx={10} direction="row" position="relative">
+			<Filter />
+			<Layout mt={130} alignItems="center" ml={[362, 350]}>
 				{data?.pages.map((page, idx) => (
 					<Stack
 						key={idx}
@@ -57,7 +59,7 @@ export default function Home({
 						Загрузить больше
 					</Button>
 				)}
-			</Stack>
+			</Layout>
 		</Stack>
 	);
 }

@@ -27,8 +27,10 @@ export default function RootLayout({
 			<html lang="en">
 				<body className={inter.className}>
 					<ChakraProvider>
-						<Navigation />
-						<ReactQueryProvider>{children}</ReactQueryProvider>
+						<ReactQueryProvider>
+							<Navigation />
+							{children}
+						</ReactQueryProvider>
 					</ChakraProvider>
 				</body>
 			</html>

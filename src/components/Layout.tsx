@@ -1,7 +1,7 @@
-import { Stack } from '@chakra-ui/react';
+import { Stack, StackProps } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
-const Layout = ({ children }: React.PropsWithChildren) => {
+const Layout = ({ children, ...props }: StackProps) => {
 	return (
 		<Stack
 			alignItems="center"
@@ -16,6 +16,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
 					delay: 0.2,
 				},
 			}}
+			{...props}
 		>
 			{children}
 		</Stack>

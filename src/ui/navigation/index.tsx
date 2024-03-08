@@ -2,22 +2,33 @@
 import { Stack } from '@chakra-ui/react';
 import { UserButton, useAuth } from '@clerk/nextjs';
 import { Link, Image } from '@chakra-ui/next-js';
+import DropMenu from '../menu';
 const Navigation = () => {
 	const { isSignedIn } = useAuth();
 	return (
-		<Stack as="header" alignItems="center">
+		<Stack
+			as="header"
+			alignItems="center"
+			w="full"
+			position="fixed"
+			zIndex={20}
+			bgColor="white"
+		>
 			<Stack as="nav" alignItems="center" gap={10} direction="row">
 				<Link href="/">
 					<Image
 						pointerEvents="none"
 						src="/logo.png"
-						width={149}
-						height={149}
+						width={125}
+						height={125}
 						alt="logo"
 					/>
 				</Link>
 				{isSignedIn ? (
-					<UserButton />
+					<Stack direction="row" gap={5}>
+						<UserButton />
+						<DropMenu />
+					</Stack>
 				) : (
 					<Link href="/sign-in" _hover={{ textDecoration: 'none' }}>
 						Вход

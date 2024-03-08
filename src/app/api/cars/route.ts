@@ -1,12 +1,12 @@
 import cursor from '@/utils/crud/cursor';
-import { NextRequest } from 'next/server';
 
-export async function GET(req: NextRequest) {
+export async function GET(req: Request) {
 	try {
-		const searchParams = req.nextUrl.searchParams;
-		const page = Number(searchParams.get('page')) || 1;
-		const limit = Number(searchParams.get('limit')) || 10;
-		const response = await cursor(page, limit);
+		const url = new URL(req.url);
+		const page = Number(url.searchParams.get('page')) || 1;
+		const limit = Number(url.searchParams.get('limit')) || 10;
+		const brand = url.searchParams.getAll('brand');
+		const response = await cursor(page, limit, { brand });
 		if (!response) {
 			return new Response('Not found', { status: 500 });
 		}
