@@ -27,10 +27,14 @@ const FildsInputs = () => {
 			reset();
 		}
 		setFilds({
-			[name]: type === 'number' ? +value : value,
+			[name]:
+				type === 'number'
+					? name === 'year'
+						? +value.slice(0, 4)
+						: +value
+					: value,
 		} as CreateState['inputs']);
 	};
-
 	return (
 		<Stack>
 			{filds.map((item) => (
@@ -57,12 +61,12 @@ const FildsInputs = () => {
 							as={item.isTextArea ? Textarea : undefined}
 							placeholder={item.placeholder}
 							name={item.name}
-							onInput={handlFilds}
-							type={item.type}
 							id={item.name}
-							value={inputs[item.name]}
-							onChange={handlFilds}
-							maxLength={item.maxLength}
+							type={item.type}
+							value={
+								inputs[item.name] === 0 ? '' : inputs[item.name]
+							}
+							onInput={handlFilds}
 							isDisabled={
 								item.name === 'power' && !(motor === 'electro')
 							}

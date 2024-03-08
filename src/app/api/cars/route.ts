@@ -1,13 +1,17 @@
-import { Car } from '@/types';
-import create from '@/utils/crud/create';
-import read from '@/utils/crud/read';
+import cursor from '@/utils/crud/cursor';
+import { NextRequest } from 'next/server';
 
-export async function GET() {
+export async function GET(req: NextRequest) {
 	try {
-		const response = await read();
+		const searchParams = req.nextUrl.searchParams;
+		const page = Number(searchParams.get('page')) || 1;
+		const limit = Number(searchParams.get('limit')) || 10;
+		const response = await cursor(page, limit);
+		if (!response) {
+			return new Response('Not found', { status: 500 });
+		}
 		return Response.json(response);
 	} catch (err) {
 		console.log(err);
 	}
 }
-

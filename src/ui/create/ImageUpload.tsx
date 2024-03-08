@@ -100,8 +100,8 @@ const ImageUpload = () => {
 						src={image}
 						alt="car-image"
 						quality={100}
-						width={150}
-						height={150}
+						width={250}
+						height={250}
 					/>
 				</Stack>
 			)}

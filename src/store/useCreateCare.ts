@@ -120,5 +120,5 @@ export const useCreateCar = create<Create>((set) => ({
 		})),
 	setError: (error) => set((state) => ({ ...state, error })),
 	reset: () => set((state) => ({ ...state, error: undefined })),
-	setClear: () => set(initial),
+	setClear: () => set({ ...initial, transmission: 'manual', motor: 'benz' }),
 }));

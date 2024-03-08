@@ -10,7 +10,6 @@ type InputsProps = {
 	type?: HTMLInputTypeAttribute;
 	isTextArea?: boolean;
 	addons?: string;
-	maxLength?: number;
 };
 export const filds: InputsProps[] = [
 	{
@@ -49,7 +48,6 @@ export const filds: InputsProps[] = [
 		name: 'year',
 		placeholder: 'Укажи год выпуска машины',
 		type: 'number',
-		maxLength: 4,
 	},
 	{
 		id: uuid(),
@@ -58,7 +56,6 @@ export const filds: InputsProps[] = [
 		placeholder: 'Укажи запас хода',
 		type: 'number',
 		addons: 'км',
-		maxLength: 4,
 	},
 ];
 export const motors: Omit<InputsProps, 'name'>[] = [

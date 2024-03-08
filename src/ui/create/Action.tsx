@@ -19,10 +19,12 @@ const Action = () => {
 		onSuccess: () => {
 			queryClien.invalidateQueries({ queryKey: ['cars'] });
 			toast({
-				description: `Машина ${state.inputs.model} ${state.inputs.brand} успешно создана`,
+				description: `Машина ${state.inputs.brand} ${state.inputs.model} успешно создана`,
 				status: 'success',
 			});
 			state.setClear();
+			console.log(state.motor);
+			console.log(state.transmission);
 		},
 
 		onError: ({ message }) => {

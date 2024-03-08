@@ -36,6 +36,8 @@ const ColorPicker = () => {
 						bgColor={item}
 						cursor="pointer"
 						onClick={() => edit(idx, item)}
+						border="1px solid"
+						borderColor="blackAlpha.300"
 					/>
 				))}
 			</Stack>
