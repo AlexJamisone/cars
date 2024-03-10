@@ -1,14 +1,15 @@
 import cursor from '@/utils/crud/cursor';
+import { NextRequest } from 'next/server';
 
-export async function GET(req: Request) {
+export async function GET(req: NextRequest) {
 	try {
-		const url = new URL(req.url);
-		const page = Number(url.searchParams.get('page')) || 1;
-		const limit = Number(url.searchParams.get('limit')) || 10;
-		const brand = url.searchParams.getAll('brand');
-		const color = url.searchParams.getAll('color');
-		const price = url.searchParams.get('price') || undefined;
-		const year = url.searchParams.get('year') || undefined;
+		const searchParams = req.nextUrl.searchParams;
+		const page = Number(searchParams.get('page')) || 1;
+		const limit = Number(searchParams.get('limit')) || 10;
+		const brand = searchParams.getAll('brand');
+		const color = searchParams.getAll('color');
+		const price = searchParams.get('price') || undefined;
+		const year = searchParams.get('year') || undefined;
 		const filter = {
 			brand,
 			color,
@@ -19,9 +20,7 @@ export async function GET(req: Request) {
 		};
 
 		const response = await cursor(page, limit, filter);
-		if (!response) {
-			return new Response('Not found', { status: 500 });
-		}
+		console.log(response);
 		return Response.json(response);
 	} catch (err) {
 		console.log(err);

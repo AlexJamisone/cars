@@ -24,7 +24,7 @@ export default async function read({
 			await holdon(1500);
 		}
 		const json = fs.readFileSync(filePath, 'utf8');
-		let cars: Car[] = JSON.parse(json);
+		let cars: Car[] = JSON.parse(json) ?? [];
 		// Filter
 		if (filter && filter.brand.length !== 0) {
 			cars = cars.filter((car) => filter.brand.includes(car.brand));

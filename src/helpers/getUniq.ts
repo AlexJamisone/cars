@@ -1,5 +1,5 @@
 import { Car } from '@/types';
-
+// make it better
 export function getBrands(cars: Car[]): { brands: string[] } {
 	return { brands: Array.from(new Set(cars.map((car) => car.brand))) };
 }

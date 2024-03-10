@@ -1,5 +1,6 @@
 'use client';
 import Layout from '@/components/Layout';
+import NoData from '@/components/NoData';
 import Placeholders from '@/components/Placeholders';
 import CarCard from '@/ui/card';
 import Filter from '@/ui/filter';
@@ -8,6 +9,7 @@ import { Button, Stack } from '@chakra-ui/react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
 import React from 'react';
+
 export default function Home({
 	searchParams,
 }: {
@@ -29,7 +31,6 @@ export default function Home({
 				return lastPageParam + 1;
 			},
 		});
-
 	return (
 		<Stack as="main" mx={10} position="relative" mb={10}>
 			<Filter />
@@ -43,6 +44,9 @@ export default function Home({
 			>
 				{data?.pages.map((page, idx) => (
 					<React.Fragment key={idx}>
+						{page.length === 0 && (
+							<NoData message="Машины не найдены" />
+						)}
 						{page.map((car, idx) => (
 							<CarCard key={car.id} car={car} idx={idx} />
 						))}

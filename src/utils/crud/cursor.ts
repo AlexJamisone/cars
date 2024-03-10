@@ -9,20 +9,16 @@ export default async function cursor(
 		color: string[];
 		sortBy: { price?: string; year?: string };
 	},
-): Promise<Car[] | null> {
+): Promise<Car[] | undefined> {
 	try {
-		const cars: Car[] | null = await read({ filter });
-		if (cars === null) {
-			return null;
+		const cars: Car[] = (await read({ filter })) ?? [];
+		if (cars.length === 0) {
+			return [];
 		}
 		const start = (page - 1) * limit;
 		const point = cars.slice(start, start + limit);
-		if (point.length === 0) {
-			throw new Error('Cars not found');
-		}
 		return point;
 	} catch (err) {
 		console.log(err);
-		return null;
 	}
 }
