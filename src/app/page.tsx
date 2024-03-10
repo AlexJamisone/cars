@@ -7,7 +7,7 @@ import { fetchCars } from '@/utils/api';
 import { Button, Stack } from '@chakra-ui/react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
-
+import React from 'react';
 export default function Home({
 	searchParams,
 }: {
@@ -31,28 +31,34 @@ export default function Home({
 		});
 
 	return (
-		<Stack as="main" mx={10} direction="row" position="relative" mb={10}>
+		<Stack as="main" mx={10} position="relative" mb={10}>
 			<Filter />
-			<Layout mt={130} alignItems="center" ml={[362, 350]} gap={5}>
+			<Layout
+				mt={130}
+				justifyContent="center"
+				ml={[355]}
+				direction="row"
+				flexWrap="wrap"
+				gap={5}
+			>
 				{data?.pages.map((page, idx) => (
-					<Stack
-						key={idx}
-						direction="row"
-						flexWrap="wrap"
-						gap={5}
-						justifyContent="center"
-					>
-						{page.map((car) => (
-							<CarCard key={car.id} car={car} />
+					<React.Fragment key={idx}>
+						{page.map((car, idx) => (
+							<CarCard key={car.id} car={car} idx={idx} />
 						))}
-					</Stack>
+					</React.Fragment>
 				))}
 				{hasNextPage && (
 					<Button
 						onClick={() => fetchNextPage()}
 						isLoading={isFetching}
+						rounded="full"
+						size="xs"
+						p={5}
+						colorScheme="blue"
 					>
-						Загрузить больше
+						Загрузить
+						<br /> больше
 					</Button>
 				)}
 				{isPending && (

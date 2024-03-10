@@ -6,6 +6,7 @@ import Sort from './Sort';
 const Filter = () => {
 	return (
 		<Layout
+			as="aside"
 			maxW={350}
 			p={3}
 			boxShadow="md"
