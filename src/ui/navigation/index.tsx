@@ -33,7 +33,7 @@ const Navigation = () => {
 				</Link>
 				{isSignedIn ? (
 					<Stack direction="row" gap={5}>
-						<UserButton />
+						<UserButton afterSignOutUrl="/" signInUrl="/sign-in" />
 						<DropMenu />
 					</Stack>
 				) : (

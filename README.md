@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Cars store
 
-## Getting Started
+Тестовое задание для компании Juzt studio\
+[Demo](https://cars-wine-phi.vercel.app/) - рабочий пример\
+[Excaledraw](https://excalidraw.com/#json=gYv_1x2XQowHI_wM-e0ak,R7pE_Ves8V7p6umwbOIhzQ) - whit board
 
-First, run the development server:
+## Используемые технологии
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+-   [Next.js/React](https://nextjs.org/) - back/frontend
+-   [Chakra UI](https://chakra-ui.com/) - CSS/components
+-   [Clerk.dev](https://clerk.com/) - auth
+-   [UploadThings](https://uploadthing.com/) - image uploader
+-   [Zod](https://zod.dev/) - validation
+-   [Axios](https://axios-http.com/docs/intro) - http request
+-   [Postman](https://www.postman.com/) - API test env
+
+## Запуск локально
+
+1. Сделать clone репозитория
+
+```
+git clone https://github.com/AlexJamisone/cars.git; cd cars
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Установить зависемости
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Создать файл .env и внести переменные из провайдеров [Clerk.dev](https://clerk.com/) и [UploadThings](https://uploadthing.com/)
 
-## Learn More
+```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_••••••••••••••••••••••••••••
+CLERK_SECRET_KEY=sk_test_••••••••••••••••••••••••••••••••••••••••••
+UPLOADTHING_SECRET=sk_live_••••••••••••••••••••••••••••••••••••••••••
+UPLOADTHING_APP_ID=•••••••••••••••••
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Запустить проект
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Тестовый аккаунт (для демо)
 
-## Deploy on Vercel
+```
+test@gmail.com
+911102221
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Roadmap, точки роста
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   Мобильная версия
+-   Update car
+-   Placeholder для детальной информации по машине
+-   image Placeholder
+
+## Authors
+
+-   write [@alexjamison](https://t.me/alexjamison) in nvim btw ~ 35 часов with white board

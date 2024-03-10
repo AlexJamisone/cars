@@ -2,8 +2,9 @@
 import Layout from '@/components/Layout';
 import { Car } from '@/types';
 import { api } from '@/utils/api';
-import { HStack, Heading, Stack, Tag, Text } from '@chakra-ui/react';
+import { HStack, Heading, Spinner, Stack, Tag, Text } from '@chakra-ui/react';
 import { useQuery } from '@tanstack/react-query';
+import { Spinnaker } from 'next/font/google';
 import Image from 'next/image';
 
 const CarDitailsPage = ({ params }: { params?: { id: string } }) => {
@@ -15,8 +16,13 @@ const CarDitailsPage = ({ params }: { params?: { id: string } }) => {
 			return response.data;
 		},
 	});
+	if (isLoading)
+		return (
+			<Layout pt={130}>
+				<Spinner size="lg" />
+			</Layout>
+		);
 	if (!car) return null;
-	if (isLoading) return null;
 	return (
 		<Layout
 			direction="row"
@@ -30,6 +36,8 @@ const CarDitailsPage = ({ params }: { params?: { id: string } }) => {
 			<Stack maxW={500} textAlign="center" justifyContent="start" gap={5}>
 				<Heading>
 					{car.brand} {car.model}
+					<br />
+					{car.year}
 				</Heading>
 				<Text>
 					Тип мотора:{' '}
