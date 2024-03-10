@@ -1,5 +1,6 @@
 'use client';
 import Layout from '@/components/Layout';
+import Placeholders from '@/components/Placeholders';
 import CarCard from '@/ui/card';
 import Filter from '@/ui/filter';
 import { fetchCars } from '@/utils/api';
@@ -16,12 +17,12 @@ export default function Home({
 	const limit = Number(searchParams?.limit) || 10;
 	const params = useSearchParams();
 
-	const { data, hasNextPage, fetchNextPage } = useInfiniteQuery({
+	const { data, hasNextPage, fetchNextPage, isPending } = useInfiniteQuery({
 		queryKey: ['cars'],
 		queryFn: ({ pageParam }) => fetchCars(pageParam, params.toString()),
 		initialPageParam: page,
 		getNextPageParam: (lastPage, _, lastPageParam) => {
-			if (lastPage.length <= limit) {
+			if (lastPage.length < limit) {
 				return undefined;
 			}
 			return lastPageParam + 1;
@@ -49,6 +50,9 @@ export default function Home({
 					<Button onClick={() => fetchNextPage()}>
 						Загрузить больше
 					</Button>
+				)}
+				{isPending && (
+					<Placeholders count={6} w={290} h={318} rounded="xl" />
 				)}
 			</Layout>
 		</Stack>

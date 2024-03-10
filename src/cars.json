@@ -167,5 +167,56 @@
       "#7e65c3"
     ],
     "id": "6c693e1b-5ac4-46b1-8c14-88029f6b4e96"
+  },
+  {
+    "price": 35000,
+    "brand": "Audi",
+    "image": "https://utfs.io/f/b26807cd-dbb5-49ff-9bbd-3d6dd1078cc1-1k7y7n.webp",
+    "description": "Vestibulum ullamcorper mauris at ligula. Fusce pharetra convallis urna. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor.\n\nVestibulum ullamcorper mauris at ligula. Pellentesque posuere. Curabitur nisi.\n\nFusce ac felis sit amet ligula pharetra condimentum. Nulla porta dolor. Nam commodo suscipit quam.",
+    "model": "LL-9",
+    "year": 2019,
+    "type": "benz",
+    "transmission": "auto",
+    "power": null,
+    "colors": [
+      "#000000",
+      "#ffffff",
+      "#ae2929"
+    ],
+    "id": "cb55cdd5-6aa5-4b21-a6dc-f083aa63ba7c"
+  },
+  {
+    "price": 39000,
+    "brand": "Lamborgini",
+    "image": "https://utfs.io/f/3bad7a4a-916b-4399-af9d-c4e3f323f3e6-1k7y7o.jpeg",
+    "description": "Vestibulum ullamcorper mauris at ligula. Fusce pharetra convallis urna. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor.\n\nVestibulum ullamcorper mauris at ligula. Pellentesque posuere. Curabitur nisi.\n\nFusce ac felis sit amet ligula pharetra condimentum. Nulla porta dolor. Nam commodo suscipit quam.",
+    "model": "LL-98",
+    "year": 2015,
+    "type": "benz",
+    "transmission": "robot",
+    "power": null,
+    "colors": [
+      "#ffffff",
+      "#000000",
+      "#71b504"
+    ],
+    "id": "87f14b7a-750c-482e-b598-18bef5456c8c"
+  },
+  {
+    "price": 56000,
+    "brand": "Mersedes",
+    "image": "https://utfs.io/f/0ddd7780-6ae7-4496-9c16-cad89dc94c59-1k7y7p.jpeg",
+    "description": "Vestibulum ullamcorper mauris at ligula. Fusce pharetra convallis urna. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor.\n\nVestibulum ullamcorper mauris at ligula. Pellentesque posuere. Curabitur nisi.\n\nFusce ac felis sit amet ligula pharetra condimentum. Nulla porta dolor. Nam commodo suscipit quam.",
+    "model": "L-8",
+    "year": 2019,
+    "type": "electro",
+    "transmission": null,
+    "power": 450,
+    "colors": [
+      "#c6b56f",
+      "#000000",
+      "#ffffff"
+    ],
+    "id": "a3393077-6640-471e-8bb2-217577404578"
   }
 ]

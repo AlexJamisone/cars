@@ -1,3 +1,4 @@
+import Placeholders from '@/components/Placeholders';
 import { api } from '@/utils/api';
 import { Stack, Tag, Text } from '@chakra-ui/react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
@@ -9,7 +10,7 @@ const Colors = () => {
 	const searchParams = useSearchParams();
 	const paramsColor = searchParams.getAll('color');
 	const queryClient = useQueryClient();
-	const { data: colors } = useQuery({
+	const { data: colors, isLoading } = useQuery({
 		queryKey: ['colors'],
 		queryFn: async () => {
 			const response = await api.get<string[]>('filter/colors');
@@ -56,6 +57,9 @@ const Colors = () => {
 						onClick={() => handlColor(color)}
 					/>
 				))}
+				{isLoading && (
+					<Placeholders count={12} w="24px" h="24px" rounded="full" />
+				)}
 			</Stack>
 		</Stack>
 	);

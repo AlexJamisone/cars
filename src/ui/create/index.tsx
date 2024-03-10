@@ -4,10 +4,11 @@ import Selectors from './Selectors';
 import Action from './Action';
 import ImageUpload from './ImageUpload';
 import ColorPicker from './ColorPicker';
+import Layout from '@/components/Layout';
 
 const Create = () => {
 	return (
-		<Stack my={5} gap={5}>
+		<Layout gap={5} pt={135}>
 			<ImageUpload />
 			<Stack direction="row" gap={10} alignItems="center">
 				<FildsInputs />
@@ -17,7 +18,7 @@ const Create = () => {
 				</Stack>
 			</Stack>
 			<Action />
-		</Stack>
+		</Layout>
 	);
 };
 export default Create;

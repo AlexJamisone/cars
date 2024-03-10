@@ -23,11 +23,11 @@ export default async function read(
 ) {
 	try {
 		if (sleep) {
-			await holdon(2000);
+			await holdon(5000);
 		}
 		const json = fs.readFileSync(filePath, 'utf8');
 		let cars: Car[] = JSON.parse(json);
-        // Filter
+		// Filter
 		if (filter && filter.brand.length !== 0) {
 			cars = cars.filter((car) => filter.brand.includes(car.brand));
 		}
@@ -36,20 +36,20 @@ export default async function read(
 				return car.colors.some((color) => filter.color.includes(color));
 			});
 		}
-        // Sort
-        if(filter && filter.sortBy)
-		if (
-			(filter && filter.sortBy && filter.sortBy.price === 'asc') ||
-			(filter && filter.sortBy && filter.sortBy.price === 'desc')
-		) {
-			cars.sort((a, b) => {
-				if (filter.sortBy.price === 'asc') {
-					return a.price - b.price;
-				} else {
-					return b.price - a.price;
-				}
-			});
-		}
+		// Sort
+		if (filter && filter.sortBy)
+			if (
+				(filter && filter.sortBy && filter.sortBy.price === 'asc') ||
+				(filter && filter.sortBy && filter.sortBy.price === 'desc')
+			) {
+				cars.sort((a, b) => {
+					if (filter.sortBy.price === 'asc') {
+						return a.price - b.price;
+					} else {
+						return b.price - a.price;
+					}
+				});
+			}
 		if (
 			(filter && filter.sortBy && filter.sortBy.year === 'asc') ||
 			(filter && filter.sortBy && filter.sortBy.year === 'desc')
