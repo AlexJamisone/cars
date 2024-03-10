@@ -3,8 +3,10 @@ import { Stack } from '@chakra-ui/react';
 import { UserButton, useAuth } from '@clerk/nextjs';
 import { Link, Image } from '@chakra-ui/next-js';
 import DropMenu from '../menu';
+import { useQueryClient } from '@tanstack/react-query';
 const Navigation = () => {
 	const { isSignedIn } = useAuth();
+	const queryClient = useQueryClient();
 	return (
 		<Stack
 			as="header"
@@ -15,7 +17,12 @@ const Navigation = () => {
 			bgColor="white"
 		>
 			<Stack as="nav" alignItems="center" gap={10} direction="row">
-				<Link href="/">
+				<Link
+					href={'/'}
+					onClick={() =>
+						queryClient.removeQueries({ queryKey: ['cars'] })
+					}
+				>
 					<Image
 						pointerEvents="none"
 						src="/logo.png"

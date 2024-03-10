@@ -4,7 +4,11 @@ import read from './read';
 export default async function cursor(
 	page: number = 0,
 	limit: number = 10,
-	filter?: { brand: string[]; color: string[] },
+	filter?: {
+		brand: string[];
+		color: string[];
+		sortBy: { price?: string; year?: string };
+	},
 ): Promise<Car[] | null> {
 	try {
 		const cars: Car[] | null = await read({ filter });

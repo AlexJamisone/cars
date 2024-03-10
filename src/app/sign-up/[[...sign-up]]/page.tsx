@@ -4,7 +4,7 @@ import { SignUp } from '@clerk/nextjs';
 
 const SignUpPage = () => {
 	return (
-		<Layout>
+		<Layout pt={150}>
 			<SignUp signInUrl="/sign-in" afterSignUpUrl="/" />
 		</Layout>
 	);

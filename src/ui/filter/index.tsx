@@ -1,6 +1,7 @@
 import Brands from './Brands';
 import Colors from './Colors';
 import Layout from '@/components/Layout';
+import Sort from './Sort';
 
 const Filter = () => {
 	return (
@@ -15,6 +16,7 @@ const Filter = () => {
 		>
 			<Brands />
 			<Colors />
+			<Sort />
 		</Layout>
 	);
 };

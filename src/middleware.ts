@@ -4,6 +4,8 @@ export default authMiddleware({
 	publicRoutes: [
 		'/',
 		'/api/cars',
+		'/api/filter',
+		'/api/filter/colors',
 		'/car/(.*)',
 		'/api/car/(.*)',
 		'/sign-in',

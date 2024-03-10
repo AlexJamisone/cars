@@ -4,11 +4,8 @@ import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import { ruRU } from '@clerk/localizations';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
-import Image from 'next/image';
-import Link from 'next/link';
 import Navigation from '@/ui/navigation';
 import CSSProvider from '@/providers/CSSProvider';
-import { ChakraProvider } from '@chakra-ui/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,12 +23,12 @@ export default function RootLayout({
 		<ClerkProvider localization={ruRU}>
 			<html lang="en">
 				<body className={inter.className}>
-					<ChakraProvider>
+					<CSSProvider>
 						<ReactQueryProvider>
 							<Navigation />
 							{children}
 						</ReactQueryProvider>
-					</ChakraProvider>
+					</CSSProvider>
 				</body>
 			</html>
 		</ClerkProvider>
