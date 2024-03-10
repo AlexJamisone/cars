@@ -18,7 +18,7 @@ export default async function read({
 			year?: string;
 		};
 	};
-}) {
+} = {}) {
 	try {
 		if (sleep) {
 			await holdon(1500);
