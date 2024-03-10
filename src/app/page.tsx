@@ -1,12 +1,9 @@
 'use client';
 import Layout from '@/components/Layout';
-import { Car } from '@/types';
 import CarCard from '@/ui/card';
 import Filter from '@/ui/filter';
-import DropMenu from '@/ui/menu';
-import { api } from '@/utils/api';
+import { fetchCars } from '@/utils/api';
 import { Button, Stack } from '@chakra-ui/react';
-import { useAuth } from '@clerk/nextjs';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
 
@@ -19,24 +16,18 @@ export default function Home({
 	const limit = Number(searchParams?.limit) || 10;
 	const params = useSearchParams();
 
-	const fetchCar = async (page: number) => {
-		const row = `/cars/?page=${page}&${params.toString()}`;
-		const url = !params.toString() ? row.replace('&', '') : row;
-		const response = await api.get<Car[]>(url);
-		return response.data;
-	};
-
-	const { data, hasNextPage, fetchNextPage, status } = useInfiniteQuery({
+	const { data, hasNextPage, fetchNextPage } = useInfiniteQuery({
 		queryKey: ['cars'],
-		queryFn: ({ pageParam }) => fetchCar(pageParam),
+		queryFn: ({ pageParam }) => fetchCars(pageParam, params.toString()),
 		initialPageParam: page,
 		getNextPageParam: (lastPage, _, lastPageParam) => {
-			if (lastPage.length < limit) {
+			if (lastPage.length <= limit) {
 				return undefined;
 			}
 			return lastPageParam + 1;
 		},
 	});
+
 	return (
 		<Stack as="main" mx={10} direction="row" position="relative">
 			<Filter />

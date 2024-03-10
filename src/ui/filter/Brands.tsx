@@ -1,7 +1,7 @@
 'use client';
 import { api } from '@/utils/api';
 import { Stack, Text } from '@chakra-ui/react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Select } from 'chakra-react-select';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
@@ -12,6 +12,8 @@ const Brands = () => {
 	const searchParams = useSearchParams();
 	const { replace } = useRouter();
 	const pathname = usePathname();
+	const paramsBrand = searchParams.getAll('brand') || [];
+	const queryClient = useQueryClient();
 	const { data: brands } = useQuery({
 		queryKey: ['brands'],
 		queryFn: async () => {
@@ -21,13 +23,20 @@ const Brands = () => {
 	});
 	const handBrands = (brand: string) => {
 		const pararms = new URLSearchParams(searchParams);
+		pararms.set('page', '1');
 		if (brand) {
 			pararms.append('brand', brand);
 		} else {
 			pararms.delete('brand');
 		}
 		replace(`${pathname}?${pararms.toString()}`);
+		queryClient.removeQueries({ queryKey: ['cars'] });
 	};
+	const valueBrand: readonly { label: string; value: string }[] =
+		paramsBrand.map((item) => ({
+			label: item,
+			value: item,
+		}));
 	return (
 		<Stack w="full">
 			<Text fontWeight={600} textColor="blackAlpha.800">
@@ -38,13 +47,15 @@ const Brands = () => {
 				isMulti
 				size="md"
 				name="brands"
+				value={valueBrand}
 				options={[
 					{
 						label: 'Бренды',
-						options: brands?.map((brand) => ({
-							label: brand,
-							value: brand,
-						})),
+						options:
+							brands?.map((brand) => ({
+								label: brand,
+								value: brand,
+							})) ?? [],
 					},
 				]}
 				onChange={(value) => {

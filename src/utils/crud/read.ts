@@ -11,7 +11,7 @@ export default async function read(
 		filter,
 	}: {
 		sleep?: boolean;
-		filter?: { brand: string | string[] };
+		filter?: { brand: string[]; color: string[] };
 	} = { sleep: true },
 ) {
 	try {
@@ -21,10 +21,12 @@ export default async function read(
 		const json = fs.readFileSync(filePath, 'utf8');
 		let cars: Car[] = JSON.parse(json);
 		if (filter && filter.brand.length !== 0) {
-			const brandFilter = Array.isArray(filter.brand)
-				? filter.brand
-				: [filter.brand];
-			cars = cars.filter((car) => brandFilter.includes(car.brand));
+			cars = cars.filter((car) => filter.brand.includes(car.brand));
+		}
+		if (filter && filter.color.length !== 0) {
+			cars = cars.filter((car) => {
+				return car.colors.some((color) => filter.color.includes(color));
+			});
 		}
 		return cars;
 	} catch (err) {

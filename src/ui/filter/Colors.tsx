@@ -1,8 +1,14 @@
 import { api } from '@/utils/api';
 import { Stack, Tag, Text } from '@chakra-ui/react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 const Colors = () => {
+	const pathname = usePathname();
+	const { replace } = useRouter();
+	const searchParams = useSearchParams();
+	const paramsColor = searchParams.getAll('color');
+	const queryClient = useQueryClient();
 	const { data: colors } = useQuery({
 		queryKey: ['colors'],
 		queryFn: async () => {
@@ -10,6 +16,21 @@ const Colors = () => {
 			return response.data;
 		},
 	});
+
+	const handlColor = (color: string) => {
+		const params = new URLSearchParams(searchParams);
+		params.set('page', '1');
+		if (color) {
+			if (paramsColor.includes(color)) {
+				params.delete('color', color);
+			} else {
+				params.append('color', color);
+			}
+		}
+		replace(`${pathname}?${params.toString()}`);
+		queryClient.removeQueries({ queryKey: ['cars'] });
+	};
+
 	return (
 		<Stack>
 			<Text fontWeight={600} textColor="blackAlpha.800">
@@ -20,8 +41,19 @@ const Colors = () => {
 					<Tag
 						key={color}
 						bgColor={color}
-						border="1px solid"
-						borderColor="blackAlpha.100"
+						rounded="full"
+						border={
+							paramsColor.includes(color)
+								? '4px solid'
+								: '1px solid'
+						}
+						borderColor={
+							paramsColor.includes(color)
+								? 'telegram.500'
+								: 'blackAlpha.100'
+						}
+						cursor="pointer"
+						onClick={() => handlColor(color)}
 					/>
 				))}
 			</Stack>
