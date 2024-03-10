@@ -23,5 +23,6 @@ export async function GET(req: NextRequest) {
 		return NextResponse.json(response);
 	} catch (err) {
 		console.log(err);
+		return NextResponse.error();
 	}
 }
