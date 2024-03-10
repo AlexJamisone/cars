@@ -5,25 +5,23 @@ import { holdon } from '../holdon';
 
 export const filePath = path.join(process.cwd(), 'src', 'cars.json');
 
-export default async function read(
-	{
-		sleep,
-		filter,
-	}: {
-		sleep?: boolean;
-		filter?: {
-			brand: string[];
-			color: string[];
-			sortBy: {
-				price?: string;
-				year?: string;
-			};
+export default async function read({
+	sleep = true,
+	filter,
+}: {
+	sleep?: boolean;
+	filter?: {
+		brand: string[];
+		color: string[];
+		sortBy: {
+			price?: string;
+			year?: string;
 		};
-	} = { sleep: true },
-) {
+	};
+}) {
 	try {
 		if (sleep) {
-			await holdon(5000);
+			await holdon(3000);
 		}
 		const json = fs.readFileSync(filePath, 'utf8');
 		let cars: Car[] = JSON.parse(json);

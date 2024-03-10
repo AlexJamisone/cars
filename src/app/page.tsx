@@ -17,22 +17,23 @@ export default function Home({
 	const limit = Number(searchParams?.limit) || 10;
 	const params = useSearchParams();
 
-	const { data, hasNextPage, fetchNextPage, isPending } = useInfiniteQuery({
-		queryKey: ['cars'],
-		queryFn: ({ pageParam }) => fetchCars(pageParam, params.toString()),
-		initialPageParam: page,
-		getNextPageParam: (lastPage, _, lastPageParam) => {
-			if (lastPage.length < limit) {
-				return undefined;
-			}
-			return lastPageParam + 1;
-		},
-	});
+	const { data, hasNextPage, fetchNextPage, isPending, isFetching } =
+		useInfiniteQuery({
+			queryKey: ['cars'],
+			queryFn: ({ pageParam }) => fetchCars(pageParam, params.toString()),
+			initialPageParam: page,
+			getNextPageParam: (lastPage, _, lastPageParam) => {
+				if (lastPage.length < limit) {
+					return undefined;
+				}
+				return lastPageParam + 1;
+			},
+		});
 
 	return (
-		<Stack as="main" mx={10} direction="row" position="relative">
+		<Stack as="main" mx={10} direction="row" position="relative" mb={10}>
 			<Filter />
-			<Layout mt={130} alignItems="center" ml={[362, 350]}>
+			<Layout mt={130} alignItems="center" ml={[362, 350]} gap={5}>
 				{data?.pages.map((page, idx) => (
 					<Stack
 						key={idx}
@@ -47,7 +48,10 @@ export default function Home({
 					</Stack>
 				))}
 				{hasNextPage && (
-					<Button onClick={() => fetchNextPage()}>
+					<Button
+						onClick={() => fetchNextPage()}
+						isLoading={isFetching}
+					>
 						Загрузить больше
 					</Button>
 				)}
