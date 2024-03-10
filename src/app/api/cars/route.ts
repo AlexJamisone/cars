@@ -26,3 +26,4 @@ export async function GET(req: NextRequest) {
 		return NextResponse.error();
 	}
 }
+export async function POST(req: NextRequest) {}

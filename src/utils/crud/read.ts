@@ -20,9 +20,9 @@ export default async function read({
 	};
 } = {}) {
 	try {
-		// if (sleep) {
-		// 	await holdon(1500);
-		// }
+		if (sleep) {
+			await holdon(1500);
+		}
 		const json = fs.readFileSync(filePath, 'utf8');
 		let cars: Car[] = JSON.parse(json) ?? [];
 		// Filter
