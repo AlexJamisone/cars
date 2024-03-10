@@ -1,5 +1,5 @@
 import cursor from '@/utils/crud/cursor';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
 	try {
@@ -20,8 +20,7 @@ export async function GET(req: NextRequest) {
 		};
 
 		const response = await cursor(page, limit, filter);
-		console.log(response);
-		return Response.json(response);
+		return NextResponse.json(response);
 	} catch (err) {
 		console.log(err);
 	}
