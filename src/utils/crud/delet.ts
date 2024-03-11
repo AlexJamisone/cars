@@ -3,6 +3,7 @@ import { Car } from '@/types';
 import read, { filePath } from './read';
 import { utapi } from '@/app/api/uploadthing/core';
 import { parseUrls } from '@/helpers/parseUrls';
+import { save } from './save';
 
 export default async function deletById(
 	ids: string | string[],
@@ -19,7 +20,7 @@ export default async function deletById(
 		const findCars = cars.filter((car) => ids.includes(car.id));
 		const imageIds = parseUrls(findCars.map((car) => car.image));
 		await utapi.deleteFiles(imageIds);
-		fs.writeFileSync(filePath, JSON.stringify(filtering, null, 2), 'utf8');
+		save(filtering);
 		return true;
 	} catch (err) {
 		console.log(err);
