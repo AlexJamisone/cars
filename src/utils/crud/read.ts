@@ -40,7 +40,7 @@ export default async function read({
 				(filter && filter.sortBy && filter.sortBy.price === 'desc')
 			) {
 				cars.sort((a, b) => {
-					if (filter.sortBy.price === 'asc') {
+					if (filter.sortBy.price === 'desc') {
 						return a.price - b.price;
 					} else {
 						return b.price - a.price;
@@ -52,7 +52,7 @@ export default async function read({
 			(filter && filter.sortBy && filter.sortBy.year === 'desc')
 		) {
 			cars.sort((a, b) => {
-				if (filter.sortBy.year === 'asc') {
+				if (filter.sortBy.year === 'desc') {
 					return a.year - b.year;
 				} else {
 					return b.year - a.year;
