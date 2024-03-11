@@ -22,7 +22,7 @@
 git clone https://github.com/AlexJamisone/cars.git; cd cars
 ```
 
-2. Установить зависемости
+2. Установить зависимости
 
 ```
 npm i
