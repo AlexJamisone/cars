@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { holdon } from '../holdon';
 
-export const filePath = path.join('/tmp', 'cars.json');
+export const filePath = path.join(process.cwd(), 'src', 'app', 'cars.json');
 export default async function read({
 	sleep = true,
 	filter,
