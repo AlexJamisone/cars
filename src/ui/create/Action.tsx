@@ -8,7 +8,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 const Action = () => {
 	const toast = useToast();
 	const state = useCreateCar();
-	const queryClien = useQueryClient();
+	const queryClient = useQueryClient();
 	const { mutate: create, isPending } = useMutation({
 		mutationKey: ['create'],
 		mutationFn: async (car: Omit<Car, 'id'>) => {
@@ -17,7 +17,9 @@ const Action = () => {
 			return response.data;
 		},
 		onSuccess: async () => {
-			await queryClien.invalidateQueries({ queryKey: ['cars'] });
+			await queryClient.invalidateQueries({ queryKey: ['cars'] });
+			await queryClient.invalidateQueries({ queryKey: ['colors'] });
+			await queryClient.invalidateQueries({ queryKey: ['brands'] });
 			toast({
 				description: `Машина ${state.inputs.brand} ${state.inputs.model} успешно создана`,
 				status: 'success',
