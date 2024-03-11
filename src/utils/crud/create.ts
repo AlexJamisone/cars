@@ -7,7 +7,7 @@ export default async function create(newCar: Omit<Car, 'id'>) {
 		const cars: Car[] = (await read()) ?? [];
 		const newCarWithId: Car = { ...newCar, id: uuid() };
 		cars.push(newCarWithId);
-		save(cars);
+		await save(cars);
 	} catch (err) {
 		console.log(err);
 	}
