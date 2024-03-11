@@ -14,6 +14,7 @@ const Filter = () => {
 			h="fit-content"
 			rounded="lg"
 			mt={130}
+			gap={5}
 		>
 			<Brands />
 			<Colors />

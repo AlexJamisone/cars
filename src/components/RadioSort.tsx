@@ -1,42 +1,60 @@
-import { HStack, Icon, Radio, RadioGroup, Stack, Text } from '@chakra-ui/react';
-import { PiSortAscendingLight, PiSortDescendingLight } from 'react-icons/pi';
+import {
+	Button,
+	ButtonGroup,
+	Icon,
+	IconButton,
+	Menu,
+	MenuButton,
+	MenuDivider,
+	MenuItemOption,
+	MenuList,
+	MenuOptionGroup,
+} from '@chakra-ui/react';
+import { GrPowerReset } from 'react-icons/gr';
 
 type RadioSortProps = {
-	handlRadio: (value: string, name: string) => void;
-	label: string;
-	value: string;
-	name: string;
-	isDisabel: boolean;
+	handlRadio: (value: string | string[], name: string) => void;
+	name: string[];
+	value: string[];
+	reset: () => void;
 };
-
-const RadioSort = ({
-	label,
-	handlRadio,
-	value,
-	name,
-	isDisabel,
-}: RadioSortProps) => {
+const RadioSort = ({ handlRadio, name, value, reset }: RadioSortProps) => {
 	return (
-		<RadioGroup
-			onChange={(value) => handlRadio(value, name)}
-			value={value}
-			name={name}
-			isDisabled={isDisabel}
-		>
-			<Text as="span" fontWeight={600} textColor="blackAlpha.800">
-				{label}
-			</Text>
-			<Stack>
-				<HStack>
-					<Radio value="desc">По убыванию</Radio>
-					<Icon as={PiSortDescendingLight} />
-				</HStack>
-				<HStack>
-					<Radio value="asc">По возрастанию</Radio>
-					<Icon as={PiSortAscendingLight} />
-				</HStack>
-			</Stack>
-		</RadioGroup>
+		<Menu>
+			<ButtonGroup variant="outline" isAttached>
+				<MenuButton w="full" as={Button}>
+					Сортировка
+				</MenuButton>
+				{(value[0] || value[1]) && (
+					<IconButton
+						onClick={reset}
+						aria-label="reset"
+						icon={<Icon as={GrPowerReset} />}
+					/>
+				)}
+			</ButtonGroup>
+			<MenuList>
+				<MenuOptionGroup
+					title="По цене"
+					type="radio"
+					value={value[0]}
+					onChange={(value) => handlRadio(value, name[0])}
+				>
+					<MenuItemOption value="asc">По возрастанию</MenuItemOption>
+					<MenuItemOption value="desc">По убыванию</MenuItemOption>
+				</MenuOptionGroup>
+				<MenuDivider />
+				<MenuOptionGroup
+					value={value[1]}
+					type="radio"
+					title="По году"
+					onChange={(value) => handlRadio(value, name[1])}
+				>
+					<MenuItemOption value="asc">По возрастанию</MenuItemOption>
+					<MenuItemOption value="desc">По убыванию</MenuItemOption>
+				</MenuOptionGroup>
+			</MenuList>
+		</Menu>
 	);
 };
 export default RadioSort;

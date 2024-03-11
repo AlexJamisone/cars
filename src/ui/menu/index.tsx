@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { IoMdTrash } from 'react-icons/io';
-import { IoAdd, IoTrashOutline } from 'react-icons/io5';
+import { IoAdd, IoTrashOutline, IoCarSportSharp } from 'react-icons/io5';
 const DropMenu = () => {
 	const toast = useToast();
 	const queryClient = useQueryClient();
@@ -41,6 +41,7 @@ const DropMenu = () => {
 		},
 	});
 	const setMode = useDeletMode((state) => state.setMode);
+	const onDelet = useDeletMode((state) => state.onDelet);
 	const ids = useDeletMode((state) => state.ids);
 	return (
 		<Menu>
@@ -88,14 +89,20 @@ const DropMenu = () => {
 						<MenuItem
 							icon={
 								<Icon
-									as={IoTrashOutline}
+									as={
+										onDelet
+											? IoCarSportSharp
+											: IoTrashOutline
+									}
 									boxSize={5}
-									color="red.300"
+									color={
+										onDelet ? 'blackAlpha.700' : 'red.300'
+									}
 								/>
 							}
 							onClick={() => setMode()}
 						>
-							Режим удаления
+							{onDelet ? 'Обычный режим' : 'Режим удаления'}
 						</MenuItem>
 					</MenuList>
 				</>
