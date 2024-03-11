@@ -31,6 +31,7 @@ export default function Home({
 				return lastPageParam + 1;
 			},
 		});
+
 	return (
 		<Stack as="main" mx={10} position="relative" mb={10}>
 			<Filter />

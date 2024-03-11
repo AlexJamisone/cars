@@ -16,8 +16,8 @@ const Action = () => {
 			const response = await api.post('/car', validate);
 			return response.data;
 		},
-		onSuccess: () => {
-			queryClien.invalidateQueries({ queryKey: ['cars'] });
+		onSuccess: async () => {
+			await queryClien.invalidateQueries({ queryKey: ['cars'] });
 			toast({
 				description: `Машина ${state.inputs.brand} ${state.inputs.model} успешно создана`,
 				status: 'success',

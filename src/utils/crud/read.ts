@@ -60,7 +60,7 @@ export default async function read({
 				}
 			});
 		}
-		return cars;
+		return cars.reverse();
 	} catch (err) {
 		console.log(err);
 		return null;

@@ -24,6 +24,14 @@ const CarCard = ({ car, idx }: { car: Car; idx: number }) => {
 			as={motion.div}
 			layout
 			initial={{ opacity: 0, x: 50 }}
+			whileHover={{
+				scale: 1.05,
+				transition: {
+					duration: 0.2,
+					stiffness: 100,
+					type: 'spring',
+				},
+			}}
 			animate={{
 				opacity: 1,
 				x: 0,

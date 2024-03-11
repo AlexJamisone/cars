@@ -33,8 +33,8 @@ const Colors = () => {
 	};
 
 	return (
-		<Stack>
-			<Text fontWeight={600} textColor="blackAlpha.800">
+		<Stack w="full">
+			<Text textAlign="left" fontWeight={600} textColor="blackAlpha.800">
 				Палитра
 			</Text>
 			<Stack direction="row" flexWrap="wrap" justifyContent="center">

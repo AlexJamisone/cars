@@ -29,11 +29,7 @@ const Sort = () => {
 
 	return (
 		<Stack alignSelf="start" w="full">
-			<Text
-				textAlign="center"
-				fontWeight={600}
-				textColor="blackAlpha.800"
-			>
+			<Text fontWeight={600} textColor="blackAlpha.800">
 				Сортировка
 			</Text>
 			<RadioSort

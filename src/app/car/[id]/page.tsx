@@ -4,7 +4,6 @@ import { Car } from '@/types';
 import { api } from '@/utils/api';
 import { HStack, Heading, Spinner, Stack, Tag, Text } from '@chakra-ui/react';
 import { useQuery } from '@tanstack/react-query';
-import { Spinnaker } from 'next/font/google';
 import Image from 'next/image';
 
 const CarDitailsPage = ({ params }: { params?: { id: string } }) => {
@@ -37,7 +36,7 @@ const CarDitailsPage = ({ params }: { params?: { id: string } }) => {
 				<Heading>
 					{car.brand} {car.model}
 					<br />
-					{car.year}
+					{car.year} года
 				</Heading>
 				<Text>
 					Тип мотора:{' '}

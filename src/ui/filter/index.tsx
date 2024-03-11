@@ -7,7 +7,7 @@ const Filter = () => {
 	return (
 		<Layout
 			as="aside"
-			maxW={350}
+			w={350}
 			p={3}
 			boxShadow="md"
 			position="fixed"

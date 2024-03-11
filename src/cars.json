@@ -1,222 +1,36 @@
 [
   {
-    "image": "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "price": 12000,
     "brand": "BMW",
-    "description": "Lorem ipsum",
-    "model": "L3",
-    "colors": [
-      "#fff",
-      "#000"
-    ],
-    "price": 200000,
-    "year": 1999,
-    "type": "benz",
-    "transmition": "manual",
-    "id": "08d5d3c8-8df0-4640-8e97-e7a0ffb462c0"
-  },
-  {
-    "price": 2000,
-    "brand": "Brend",
-    "image": "https://utfs.io/f/8d66ba5a-898b-4587-af73-448e8486af34-1tae5.jpg",
-    "description": "Vivamus euismod mauris. Quisque ut nisi. Ut a nisl id ante tempus hendrerit.\n\nEtiam iaculis nunc ac metus. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.\n\nNunc nulla. Vivamus elementum semper nisi. Phasellus accumsan cursus velit.",
-    "model": "BB-1",
+    "image": "https://utfs.io/f/1ed4000c-9182-4b36-b7a0-f8fb549f67db-1tae5.jpg",
+    "description": "Cras dapibus. Maecenas egestas arcu quis ligula mattis placerat. Phasellus ullamcorper ipsum rutrum nunc.\n\nFusce a quam. Vestibulum suscipit nulla quis orci. Donec vitae sapien ut libero venenatis faucibus.\n\nPhasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Etiam imperdiet imperdiet orci. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi.",
+    "model": "BR-7",
     "year": 1985,
     "type": "benz",
     "transmission": "manual",
     "power": null,
     "colors": [
-      "#046a7d",
-      "#c1961f"
-    ],
-    "id": "0b807762-2a96-4701-9ddb-d62dd044e196"
-  },
-  {
-    "price": 3000,
-    "brand": "BMW",
-    "image": "https://utfs.io/f/7c2276fd-8113-4d28-b383-5840ae6b325a-1tae6.jpg",
-    "description": "Vivamus euismod mauris. Quisque ut nisi. Ut a nisl id ante tempus hendrerit.\n\nEtiam iaculis nunc ac metus. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.\n\nNunc nulla. Vivamus elementum semper nisi. Phasellus accumsan cursus velit.",
-    "model": "ML-1",
-    "year": 2005,
-    "type": "dizel",
-    "transmission": "auto",
-    "power": null,
-    "colors": [
-      "#f16972",
-      "#4ab8d3",
-      "#4ed7da"
-    ],
-    "id": "50160013-7793-4ca7-8d31-0064ff798237"
-  },
-  {
-    "price": 55000,
-    "brand": "Bentli",
-    "image": "https://utfs.io/f/3c24e655-90ad-4891-97ff-d95d302fd355-1tae7.jpg",
-    "description": "Vivamus euismod mauris. Quisque ut nisi. Ut a nisl id ante tempus hendrerit.\n\nEtiam iaculis nunc ac metus. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.\n\nNunc nulla. Vivamus elementum semper nisi. Phasellus accumsan cursus velit.",
-    "model": "R2D2",
-    "year": 2015,
-    "type": "benz",
-    "transmission": "auto",
-    "power": null,
-    "colors": [
-      "#000000",
       "#ffffff",
-      "#816cea"
+      "#000000",
+      "#1295b1"
     ],
-    "id": "e34d8e84-dcee-4e01-9180-a297b924675e"
-  },
-  {
-    "price": 12000,
-    "brand": "Audi",
-    "image": "https://utfs.io/f/67c32b17-04da-400e-9cab-f09c3bc50ea2-1tae8.jpg",
-    "description": "Etiam rhoncus. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor.\n\nSed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Nam commodo suscipit quam. Curabitur a felis in nunc fringilla tristique.\n\nFusce a quam. Phasellus nec sem in justo pellentesque facilisis. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi.",
-    "model": "TT",
-    "year": 2015,
-    "type": "electro",
-    "transmission": null,
-    "power": 300,
-    "colors": [
-      "#050505",
-      "#fcfcfc",
-      "#df956d"
-    ],
-    "id": "420b9789-3037-4279-8c33-364ee5d3a188"
-  },
-  {
-    "price": 45000,
-    "brand": "Tesla",
-    "image": "https://utfs.io/f/5ad3efac-56f5-46b2-bb46-20f17d4a29d6-1tae9.jpg",
-    "description": "Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. In hac habitasse platea dictumst. Etiam feugiat lorem non metus.\n\nCras ultricies mi eu turpis hendrerit fringilla. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros.\n\nUt leo. Duis vel nibh at velit scelerisque suscipit. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
-    "model": "M3",
-    "year": 2015,
-    "type": "electro",
-    "transmission": null,
-    "power": 300,
-    "colors": [
-      "#5683b3",
-      "#1f1615",
-      "#ffffff"
-    ],
-    "id": "c4e7e2ab-f04f-4376-8c48-6cb4c63da9ce"
+    "id": "cc0991b5-57bb-4caf-ac7d-f5c36ad49c67"
   },
   {
     "price": 15000,
-    "brand": "Mersedes",
-    "image": "https://utfs.io/f/8ca04e88-e03d-43b7-9741-0e0d2d80d35f-1taea.jpg",
-    "description": "Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. In hac habitasse platea dictumst. Etiam feugiat lorem non metus.\n\nCras ultricies mi eu turpis hendrerit fringilla. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros.\n\nUt leo. Duis vel nibh at velit scelerisque suscipit. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
-    "model": "V-8",
-    "year": 2011,
+    "brand": "BMW",
+    "image": "https://utfs.io/f/0e5a391a-f731-462f-980a-611a5f0eb1ac-1tae6.jpg",
+    "description": "Sed lectus. Aliquam lobortis. Praesent nec nisl a purus blandit viverra.\n\nPraesent ut ligula non mi varius sagittis. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus.\n\nPraesent adipiscing. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi. In hac habitasse platea dictumst.",
+    "model": "SL-88",
+    "year": 2020,
     "type": "benz",
-    "transmission": "auto",
-    "power": null,
-    "colors": [
-      "#e4b101",
-      "#ffffff",
-      "#3bb5ad"
-    ],
-    "id": "885e7ae5-30cc-4e5f-a4be-77fbfc3ffecb"
-  },
-  {
-    "price": 35000,
-    "brand": "Tesla",
-    "image": "https://utfs.io/f/58042093-b4b7-4e10-b10e-a121fa436fc1-1taeb.jpeg",
-    "description": "Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. In hac habitasse platea dictumst. Etiam feugiat lorem non metus.\n\nCras ultricies mi eu turpis hendrerit fringilla. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros.\n\nUt leo. Duis vel nibh at velit scelerisque suscipit. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
-    "model": "Model X",
-    "year": 2016,
-    "type": "electro",
-    "transmission": null,
-    "power": 500,
-    "colors": [
-      "#942f12",
-      "#000000",
-      "#ffffff",
-      "#4c719a",
-      "#4e4141"
-    ],
-    "id": "493c6a56-6e19-402f-a710-6a85daf32413"
-  },
-  {
-    "price": 13000,
-    "brand": "Ferari",
-    "image": "https://utfs.io/f/f64bea64-4567-462a-8ef8-28b07098351e-1taec.jpg",
-    "description": "Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. In hac habitasse platea dictumst. Etiam feugiat lorem non metus.\n\nCras ultricies mi eu turpis hendrerit fringilla. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros.\n\nUt leo. Duis vel nibh at velit scelerisque suscipit. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
-    "model": "FF-7",
-    "year": 1975,
-    "type": "benz",
-    "transmission": "auto",
-    "power": null,
-    "colors": [
-      "#570807",
-      "#ffffff",
-      "#000000"
-    ],
-    "id": "36a56900-3e49-47bf-b04a-a29a042e8d24"
-  },
-  {
-    "price": 25000,
-    "brand": "Porshe",
-    "image": "https://utfs.io/f/d379a4ae-ccaa-443e-bf42-2b1207588d53-1k7y7n.jpg",
-    "description": "Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. In hac habitasse platea dictumst. Etiam feugiat lorem non metus.\n\nCras ultricies mi eu turpis hendrerit fringilla. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros.\n\nUt leo. Duis vel nibh at velit scelerisque suscipit. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
-    "model": "911",
-    "year": 2019,
-    "type": "electro",
-    "transmission": null,
-    "power": 200,
-    "colors": [
-      "#000000",
-      "#ffffff",
-      "#7e65c3"
-    ],
-    "id": "6c693e1b-5ac4-46b1-8c14-88029f6b4e96"
-  },
-  {
-    "price": 35000,
-    "brand": "Audi",
-    "image": "https://utfs.io/f/b26807cd-dbb5-49ff-9bbd-3d6dd1078cc1-1k7y7n.webp",
-    "description": "Vestibulum ullamcorper mauris at ligula. Fusce pharetra convallis urna. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor.\n\nVestibulum ullamcorper mauris at ligula. Pellentesque posuere. Curabitur nisi.\n\nFusce ac felis sit amet ligula pharetra condimentum. Nulla porta dolor. Nam commodo suscipit quam.",
-    "model": "LL-9",
-    "year": 2019,
-    "type": "benz",
-    "transmission": "auto",
+    "transmission": "manual",
     "power": null,
     "colors": [
       "#000000",
       "#ffffff",
-      "#ae2929"
+      "#7e0107"
     ],
-    "id": "cb55cdd5-6aa5-4b21-a6dc-f083aa63ba7c"
-  },
-  {
-    "price": 39000,
-    "brand": "Lamborgini",
-    "image": "https://utfs.io/f/3bad7a4a-916b-4399-af9d-c4e3f323f3e6-1k7y7o.jpeg",
-    "description": "Vestibulum ullamcorper mauris at ligula. Fusce pharetra convallis urna. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor.\n\nVestibulum ullamcorper mauris at ligula. Pellentesque posuere. Curabitur nisi.\n\nFusce ac felis sit amet ligula pharetra condimentum. Nulla porta dolor. Nam commodo suscipit quam.",
-    "model": "LL-98",
-    "year": 2015,
-    "type": "benz",
-    "transmission": "robot",
-    "power": null,
-    "colors": [
-      "#ffffff",
-      "#000000",
-      "#71b504"
-    ],
-    "id": "87f14b7a-750c-482e-b598-18bef5456c8c"
-  },
-  {
-    "price": 56000,
-    "brand": "Mersedes",
-    "image": "https://utfs.io/f/0ddd7780-6ae7-4496-9c16-cad89dc94c59-1k7y7p.jpeg",
-    "description": "Vestibulum ullamcorper mauris at ligula. Fusce pharetra convallis urna. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor.\n\nVestibulum ullamcorper mauris at ligula. Pellentesque posuere. Curabitur nisi.\n\nFusce ac felis sit amet ligula pharetra condimentum. Nulla porta dolor. Nam commodo suscipit quam.",
-    "model": "L-8",
-    "year": 2019,
-    "type": "electro",
-    "transmission": null,
-    "power": 450,
-    "colors": [
-      "#c6b56f",
-      "#000000",
-      "#ffffff"
-    ],
-    "id": "a3393077-6640-471e-8bb2-217577404578"
+    "id": "a8dca618-98ee-4088-9b60-a2a6e7d83790"
   }
 ]
