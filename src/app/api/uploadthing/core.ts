@@ -1,7 +1,9 @@
 import { createUploadthing, type FileRouter } from 'uploadthing/next';
-import { UploadThingError } from 'uploadthing/server';
+import { UploadThingError, UTApi } from 'uploadthing/server';
 import { auth } from '@clerk/nextjs';
 const f = createUploadthing();
+
+export const utapi = new UTApi();
 
 export const ourFileRouter = {
 	imageUploader: f({ image: { maxFileSize: '16MB', maxFileCount: 1 } })
