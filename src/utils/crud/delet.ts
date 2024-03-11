@@ -17,7 +17,7 @@ export default async function deletById(
 			(car) => !idsArray.includes(car.id),
 		);
 		const findCars = cars.filter((car) => ids.includes(car.id));
-		const imageIds: string[] = parseUrls(findCars.map((car) => car.image));
+		const imageIds = parseUrls(findCars.map((car) => car.image));
 		await utapi.deleteFiles(imageIds);
 		fs.writeFileSync(filePath, JSON.stringify(filtering, null, 2), 'utf8');
 		return true;
