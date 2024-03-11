@@ -1,7 +1,7 @@
 ## Cars store
 
 Тестовое задание для компании Juzt studio\
-[Demo](https://cars-wine-phi.vercel.app/) - рабочий пример\
+[Demo](https://cars-production-8fd8.up.railway.app/) - рабочий пример\
 [Excaledraw](https://excalidraw.com/#json=gYv_1x2XQowHI_wM-e0ak,R7pE_Ves8V7p6umwbOIhzQ) - whit board
 
 ## Используемые технологии
