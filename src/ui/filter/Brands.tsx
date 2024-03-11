@@ -21,13 +21,11 @@ const Brands = () => {
 			return response.data;
 		},
 	});
-	const handBrands = (brand: string) => {
+	const handlBrands = (brands: { value: string }[]) => {
 		const pararms = new URLSearchParams(searchParams);
-		pararms.set('page', '1');
-		if (brand) {
-			pararms.append('brand', brand);
-		} else {
-			pararms.delete('brand');
+		pararms.delete('brand');
+		if (brands.length > 0) {
+			brands.forEach((brand) => pararms.append('brand', brand.value));
 		}
 		replace(`${pathname}?${pararms.toString()}`);
 		queryClient.removeQueries({ queryKey: ['cars'] });
@@ -58,10 +56,9 @@ const Brands = () => {
 							})) ?? [],
 					},
 				]}
-				onChange={(value) => {
-					const option = value[value.length - 1];
-					handBrands(option?.label);
-				}}
+				onChange={(value) =>
+					handlBrands(value.map((item) => ({ value: item.value })))
+				}
 				placeholder="Выбери бренд"
 			/>
 		</Stack>

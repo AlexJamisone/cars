@@ -6,7 +6,7 @@ export default authMiddleware({
 		'/api/cars',
 		'/api/filter',
 		'/api/filter/colors',
-		/^\/car\/(?!create$)(.+)$/gm,
+		/^\/car\/(?!create$)(.+)$/,
 		'/api/car/(.*)',
 		'/sign-in',
 		'/sign-up',
