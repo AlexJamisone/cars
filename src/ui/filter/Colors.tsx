@@ -38,6 +38,9 @@ const Colors = () => {
 				Палитра
 			</Text>
 			<Stack direction="row" flexWrap="wrap" justifyContent="center">
+				{colors?.length === 0 && (
+					<Text textAlign="center">Нет доступных цветов</Text>
+				)}
 				{colors?.map((color) => (
 					<Tag
 						key={color}

@@ -26,7 +26,9 @@ const DropMenu = () => {
 			return response.data;
 		},
 		onSuccess: async () => {
-			await queryClient.invalidateQueries({ queryKey: ['cars'] });
+			await queryClient.invalidateQueries({
+				queryKey: ['cars', 'brands', 'colors'],
+			});
 			clear();
 			toast({
 				description: 'Выбранные машины успешно удалены',
